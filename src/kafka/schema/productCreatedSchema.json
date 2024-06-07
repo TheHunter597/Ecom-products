@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "productCreatedEvent",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "price": {
+      "type": "number"
+    },
+    "image": {
+      "type": "string"
+    },
+    "countInStock": {
+      "type": "number"
+    },
+    "colors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "image": {
+            "hex": "string"
+          }
+        }
+      }
+    },
+    "sizes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "abbreviation": {
+            "hex": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": ["id", "title", "price", "image", "countInStock"]
+}
