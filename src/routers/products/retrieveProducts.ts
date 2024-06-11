@@ -16,7 +16,6 @@ async function retrieveProducts(
     });
     let productsFiltered = new productFilterer(products, req.query);
     let finalProducts = await productsFiltered.query;
-    console.log({ finalProducts }, "finalProducts");
 
     return res.status(200).json({
       message: "Products retrieved successfully.",

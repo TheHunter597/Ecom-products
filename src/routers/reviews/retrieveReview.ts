@@ -14,6 +14,6 @@ async function retrieveReview(req: Request, res: Response, next: NextFunction) {
   });
 }
 
-router.get("/api/v1/reviews/:id/", retrieveReview);
+router.get("/api/v1/products/reviews/:id/", retrieveReview);
 
 export { router as retrieveReviewRouter };

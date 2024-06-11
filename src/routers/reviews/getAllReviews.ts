@@ -20,6 +20,6 @@ async function retrieveAllReviews(
   });
 }
 
-router.get("/api/v1/product/:id/reviews/", retrieveAllReviews);
+router.get("/api/v1/products/:id/reviews/", retrieveAllReviews);
 
 export { router as retrieveAllReviewsRouter };

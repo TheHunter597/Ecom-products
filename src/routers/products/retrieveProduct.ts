@@ -9,28 +9,32 @@ async function retrieveProduct(
   res: Response,
   next: NextFunction
 ) {
-  let product = await ProductModel.findById(req.params.id)
-    .populate({
-      path: "reviews",
-      populate: {
+  try {
+    let product = await ProductModel.findById(req.params.id)
+      .populate({
+        path: "reviews",
+        populate: {
+          path: "creator",
+          select: "first_name last_name avatar email",
+        },
+      })
+      .populate({
         path: "creator",
-        select: "first_name last_name avatar email",
-      },
-    })
-    .populate({
-      path: "creator",
-      select: "id",
+        select: "id",
+      });
+    console.log({ product }, "product");
+
+    if (!product) {
+      return next(new NotFound("There is no such a product"));
+    }
+
+    return res.status(200).json({
+      message: "Product retrieved successfully.",
+      product,
     });
-  console.log({ product }, "product");
-
-  if (!product) {
-    return next(new NotFound("There is no such a product"));
+  } catch (err) {
+    return next(new NotFound("Product not found."));
   }
-
-  return res.status(200).json({
-    message: "Product retrieved successfully.",
-    product,
-  });
 }
 
 router.get("/api/v1/products/:id/", errorCatcher(retrieveProduct));

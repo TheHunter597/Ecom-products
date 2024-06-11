@@ -6,8 +6,6 @@ import UserModel from "../../models/main/UserModel";
 let router = Router();
 
 async function deleteProducts(req: Request, res: Response, next: NextFunction) {
-  console.log("in here");
-
   return res.status(200).json({
     message: "done",
   });

@@ -46,6 +46,10 @@ async function updateReview(
   }
 }
 
-router.put("/api/v1/reviews/:id/", checkUserAuthenticated, updateReview);
+router.put(
+  "/api/v1/products/reviews/:id/",
+  checkUserAuthenticated,
+  updateReview
+);
 
 export { router as updateReviewRouter };

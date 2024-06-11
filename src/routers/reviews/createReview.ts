@@ -58,7 +58,7 @@ async function createReview(
 }
 
 router.post(
-  "/api/v1/product/:id/reviews/create/",
+  "/api/v1/products/:id/reviews/create/",
   checkUserAuthenticated,
   validateInput(["review", "rating"], "Error happened while creating review."),
   createReview

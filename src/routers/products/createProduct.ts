@@ -17,6 +17,8 @@ export default async function createProduct(
   next: NextFunction
 ) {
   /// making the function atomic any error reveret any db changes back :)
+  console.log("lakjsdfljaldjalkjdlkjalfjs");
+
   let session = await mongoose.connection.startSession();
   session.startTransaction();
   try {
